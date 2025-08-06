@@ -2,22 +2,20 @@ name: Update PAC File
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
-  workflow_dispatch:
+    - cron: '0 */2 * * *' # 每隔两个小时运行一次
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   update-pac:
     runs-on: ubuntu-latest
-    permissions: # 添加这一行来授予工作流写入权限
-      contents: write
+    permissions:
+      contents: write # 授予工作流写入权限
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          # 使用内置的 token
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ... 后续步骤保持不变 ...
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -25,15 +23,16 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install requests
 
       - name: Run script to update PAC
         run: python update_pac.py
-      
+
       - name: Commit and push changes
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add proxy.pac
-          git commit -m "Update proxy.pac file" || echo "No changes to commit"
+          git diff-index --quiet HEAD || git commit -m "Update proxy.pac file"
           git push
