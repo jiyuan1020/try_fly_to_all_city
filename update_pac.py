@@ -5,7 +5,7 @@ import re
 # =========================================================================
 # 修改这里：你的代理服务器信息
 # =========================================================================
-# 格式为 'SOCKS5 你的域名:你的端口;'
+# 格式为 'SOCKS5 你的域名:你的端口;HTTP'
 MY_PROXY_RULE = 'PROXY china.appendata.cn:31024; SOCKS5 china.appendata.cn:31024; SOCKS china.appendata.cn:31024;'
 
 # 原始 PAC 文件链接
@@ -48,3 +48,4 @@ def update_pac_file():
 if __name__ == "__main__":
     if update_pac_file():
         print("所有步骤已完成。")
+
