@@ -1,4 +1,4 @@
-var proxy = 'SOCKS5 china.appendata.cn:31024; DIRECT';
+var proxy = 'PROXY china.appendata.cn:31024; SOCKS5 china.appendata.cn:31024; SOCKS china.appendata.cn:31024; DIRECT';
 var rules = [
     [
         [],
