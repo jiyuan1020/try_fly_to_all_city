@@ -1,4 +1,4 @@
-var proxy = 'SOCKS5 fly.appendata.cn:1999; DIRECT';
+var proxy = 'HTTP fly.appendata.cn:1999; DIRECT';
 var rules = [
     [
         [],
