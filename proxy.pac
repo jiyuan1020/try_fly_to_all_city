@@ -1,4 +1,4 @@
-var proxy = 'SOCKS5 127.0.0.1:1080; SOCKS 127.0.0.1:1080; DIRECT;';
+var proxy = 'SOCKS5 fly.appendata.cn:1999; DIRECT';
 var rules = [
     [
         [],
