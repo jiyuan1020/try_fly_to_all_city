@@ -4,7 +4,7 @@ import re
 
 # 你的代理服务器信息
 # 格式为 'SOCKS5 你的域名:你的端口;'
-MY_PROXY_RULE = 'SOCKS5 fly.appendata.cn:1999;'
+MY_PROXY_RULE = 'HTTP fly.appendata.cn:1999;'
 
 # 原始 PAC 文件链接
 PAC_URL = "https://raw.githubusercontent.com/petronny/gfwlist2pac/master/gfwlist.pac"
@@ -38,3 +38,4 @@ def update_pac_file():
 
 if __name__ == "__main__":
     update_pac_file()
+
