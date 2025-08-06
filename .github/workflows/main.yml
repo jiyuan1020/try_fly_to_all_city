@@ -29,6 +29,10 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+          
+          # 检查是否有文件更改
           git add proxy.pac
-          git commit -m "Update proxy.pac file" || echo "No changes to commit"
+          git diff-index --quiet HEAD || git commit -m "Update proxy.pac file"
+          
+          # 如果有提交，则推送到仓库
           git push
