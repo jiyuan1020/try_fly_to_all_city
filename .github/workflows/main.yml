@@ -2,7 +2,7 @@ name: Update PAC File
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # 每隔两个小时运行一次
+    - cron: '*/1 * * * *' # 每分钟运行一次
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -33,6 +33,12 @@ jobs:
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
+          
           git add proxy.pac
-          git diff-index --quiet HEAD || git commit -m "Update proxy.pac file"
-          git push
+          
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Update proxy.pac file"
+            git push
+          else
+            echo "No changes to commit."
+          fi
