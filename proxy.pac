@@ -30,6 +30,7 @@ var rules = [
             "173ng.com",
             "18board.com",
             "18comic.org",
+            "18comic.vip",
             "18mh.net",
             "1984.city",
             "1984bbs.com",
