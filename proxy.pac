@@ -900,6 +900,7 @@ var rules = [
             "disp.cc",
             "disqus.com",
             "dit-inc.us",
+            "divdyn.com",
             "diyin.org",
             "dizhuzhishang.com",
             "dl-laby.jp",
